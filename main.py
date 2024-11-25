@@ -5,8 +5,8 @@ from machine import Pin
 import time
 
 # Wi-Fi credentials
-ssid = 'TP-Link_1BDE'
-password = '63365483'
+ssid = 'YOUR_WIF_SSID'
+password = 'YOUR_PASSWORD'
 
 # Set up the LED on GPIO15 as an output pin
 led_pin = Pin(15, Pin.OUT)
@@ -41,10 +41,10 @@ def connect_to_wifi():
 
 # Function to send data to the HTTP endpoint
 def send_data(temperature, humidity, led_state):
-    url = 'https://api.datacake.co/integrations/api/d7845d47-d94e-40bf-b117-f0183681b62a/'
+    url = 'YOUR_END_POINT'
     headers = {'Content-Type': 'application/json'}
     data = {
-        "device": "d2d0918c-971c-4085-98e2-a1686cfc374c",
+        "device": "YOUR_DEVICE_ID",
         "temperature": temperature,
         "humidity": humidity,
         "led_state": led_state
@@ -84,6 +84,6 @@ while True:
     except OSError as e:
         print('Failed to read sensor.')
 
-    time.sleep(20)  # Wait for 2 seconds before the next reading
+    time.sleep(10)  # Wait for 10 seconds before the next reading
 
 
